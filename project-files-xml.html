@@ -1,0 +1,87 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-26T16:45:30.215227"><meta name="build-number" content="${buildNumber}">       <title>Sample XML project files | DITA Open Toolkit 4.1</title><script id="virtual-toc-data" type="application/json">[]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Sample XML project files | DITA Open Toolkit 4.1"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="DITA Open Toolkit 4.1 Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="project-files-xml.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Sample XML project files | DITA Open Toolkit 4.1"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "project-files-xml.html#webpage", "url": "project-files-xml.html", "name": "Sample XML project files | DITA Open Toolkit 4.1", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "DITA Open Toolkit 4.1 Help" }</script><!-- End Schema.org --></head>      <body data-id="project-files-xml" data-main-title="Sample XML project files" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="building-output.md|Building output///build-using-dita-command.md|yes///using-project-files.md|Publishing with project files"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>DITA Open Toolkit 4.1  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="project-files-xml"   id="project-files-xml.md">Sample XML project files</h1>  <p id="67ba78a1_3">DITA-OT includes sample XML project files that can be used to define a publication project. The XML format can be validated with a RELAX&nbsp;NG schema provided in the <code class="code" id="67ba78a1_4">resources</code> folder of the DITA-OT installation (<code class="code" id="67ba78a1_5">project.rnc</code>).</p><p id="67ba78a1_6">Project files can be designed in a modular fashion to create reusable configuration structures that allow you to define settings in one file and refer to them in other projects to publish multiple deliverables at once.</p><p id="67ba78a1_7">For example, <code class="code" id="67ba78a1_8">*dita-ot-dir*/docsrc/samples``/project-files/html.xml</code> defines a single HTML deliverable.</p><div class="code-block" data-lang="none"         >
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml-model href=&quot;https://www.dita-ot.org/rng/project.rnc&quot; type=&quot;application/relax-ng-compact-syntax&quot;?&gt;
+&lt;project xmlns=&quot;https://www.dita-ot.org/project&quot;&gt;
+  &lt;include href=&quot;common.xml&quot;/&gt;
+  &lt;deliverable name=&quot;HTML5&quot; id=&quot;html&quot;&gt;
+    &lt;context idref=&quot;html&quot;/&gt;
+    &lt;output href=&quot;.&quot;/&gt;
+    &lt;publication transtype=&quot;html5&quot;&gt;
+      &lt;param name=&quot;args.copycss&quot; value=&quot;yes&quot;/&gt;
+      &lt;param name=&quot;args.css&quot; value=&quot;dita-ot-doc.css&quot;/&gt;
+      &lt;param name=&quot;args.csspath&quot; value=&quot;css&quot;/&gt;
+      &lt;param name=&quot;args.cssroot&quot; path=&quot;../../resources&quot;/&gt;
+      &lt;param name=&quot;args.gen.task.lbl&quot; value=&quot;YES&quot;/&gt;
+      &lt;param name=&quot;args.hdr&quot; href=&quot;../../resources/header.xml&quot;/&gt;
+      &lt;param name=&quot;args.rellinks&quot; value=&quot;noparent&quot;/&gt;
+      &lt;param name=&quot;html5.toc.generate&quot; value=&quot;no&quot;/&gt;
+      &lt;param name=&quot;nav-toc&quot; value=&quot;partial&quot;/&gt;
+    &lt;/publication&gt;
+  &lt;/deliverable&gt;
+&lt;/project&gt;
+</div><p id="67ba78a1_10">This file can be used to generate the HTML version of the DITA-OT documentation by running the following command from the <code class="code" id="67ba78a1_11">docsrc</code> folder of the DITA-OT installation directory:</p><div class="code-block" data-lang="none"         >
+`dita` **--project**=`samples/project-files/html.xml`
+</div><p id="67ba78a1_13">The project file for HTML output imports the common <code class="code" id="67ba78a1_14">html</code> context from a shared project context defined in the <code class="code" id="67ba78a1_15">*dita-ot-dir*/docsrc/samples``/project-files/common.xml</code> file, which includes the input map file and the DITAVAL file used to filter the output.</p><div class="code-block" data-lang="none"         >
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml-model href=&quot;https://www.dita-ot.org/rng/project.rnc&quot; type=&quot;application/relax-ng-compact-syntax&quot;?&gt;
+&lt;project xmlns=&quot;https://www.dita-ot.org/project&quot;&gt;
+  &lt;context id=&quot;html&quot; name=&quot;HTML&quot;&gt;
+    &lt;input href=&quot;../../userguide.ditamap&quot;/&gt;
+    &lt;profile&gt;
+      &lt;ditaval href=&quot;../../resources/html.ditaval&quot;/&gt;
+    &lt;/profile&gt;
+  &lt;/context&gt;
+&lt;/project&gt;
+</div><p id="67ba78a1_17">The same common <code class="code" id="67ba78a1_18">html</code> context is also referenced in the project file for HTMLHelp output, as illustrated in <code class="code" id="67ba78a1_19">*dita-ot-dir*/docsrc/samples``/project-files/htmlhelp.xml</code>.</p><div class="code-block" data-lang="none"         >
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml-model href=&quot;https://www.dita-ot.org/rng/project.rnc&quot; type=&quot;application/relax-ng-compact-syntax&quot;?&gt;
+&lt;project xmlns=&quot;https://www.dita-ot.org/project&quot;&gt;
+  &lt;deliverable name=&quot;HTMLHelp&quot; id=&quot;htmlhelp&quot;&gt;
+    &lt;context idref=&quot;html&quot;/&gt;
+    &lt;output href=&quot;htmlhelp&quot;/&gt;
+    &lt;publication transtype=&quot;htmlhelp&quot;&gt;
+      &lt;param name=&quot;args.copycss&quot; value=&quot;yes&quot;/&gt;
+      &lt;param name=&quot;args.css&quot; value=&quot;dita-ot-doc.css&quot;/&gt;
+      &lt;param name=&quot;args.csspath&quot; value=&quot;css&quot;/&gt;
+      &lt;param name=&quot;args.cssroot&quot; path=&quot;../../resources&quot;/&gt;
+      &lt;param name=&quot;args.gen.task.lbl&quot; value=&quot;YES&quot;/&gt;
+    &lt;/publication&gt;
+  &lt;/deliverable&gt;
+&lt;/project&gt;
+</div><p id="67ba78a1_21">The <code class="code" id="67ba78a1_22">*dita-ot-dir*/docsrc/samples``/project-files/pdf.xml</code> file defines a single PDF deliverable.</p><div class="code-block" data-lang="none"         >
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml-model href=&quot;https://www.dita-ot.org/rng/project.rnc&quot; type=&quot;application/relax-ng-compact-syntax&quot;?&gt;
+&lt;project xmlns=&quot;https://www.dita-ot.org/project&quot;&gt;
+  &lt;deliverable id=&quot;pdf&quot;&gt;
+    &lt;context name=&quot;User Guide&quot;&gt;
+      &lt;input href=&quot;../../userguide-book.ditamap&quot;/&gt;
+    &lt;/context&gt;
+    &lt;output href=&quot;.&quot;/&gt;
+    &lt;publication transtype=&quot;pdf2&quot;&gt;
+      &lt;param name=&quot;args.chapter.layout&quot; value=&quot;BASIC&quot;/&gt;
+      &lt;param name=&quot;args.gen.task.lbl&quot; value=&quot;YES&quot;/&gt;
+      &lt;param name=&quot;include.rellinks&quot; value=&quot;#default external&quot;/&gt;
+      &lt;param name=&quot;outputFile.base&quot; value=&quot;userguide&quot;/&gt;
+      &lt;param name=&quot;theme&quot; path=&quot;../themes/dita-ot-docs-theme.yaml&quot;/&gt;
+      &lt;profile&gt;
+        &lt;ditaval href=&quot;../../resources/pdf.ditaval&quot;/&gt;
+      &lt;/profile&gt;
+    &lt;/publication&gt;
+  &lt;/deliverable&gt;
+&lt;/project&gt;
+</div><p id="67ba78a1_24">This file can be used to generate the PDF version of the DITA-OT documentation by running the following command from the <code class="code" id="67ba78a1_25">docsrc</code> folder of the DITA-OT installation directory:</p><div class="code-block" data-lang="none"         >
+`dita` **--project**=`samples/project-files/pdf.xml`
+</div><p id="67ba78a1_27">The <code class="code" id="67ba78a1_28">*dita-ot-dir*/docsrc/samples``/project-files/distribution-docs.xml</code> file includes both the HTML and PDF projects as follows:</p><div class="code-block" data-lang="none"         >
+&lt;project xmlns=&quot;https://www.dita-ot.org/project&quot;&gt;
+  &lt;include href=&quot;html.xml&quot;/&gt;
+  &lt;include href=&quot;pdf.xml&quot;/&gt;
+&lt;/project&gt;
+</div><p id="67ba78a1_30">To build both the HTML and PDF versions of the documentation as included in the distribution package, run the following command from the <code class="code" id="67ba78a1_31">docsrc</code> folder of the DITA-OT installation directory:</p><div class="code-block" data-lang="none"         >
+`dita` **--project**=`samples/project-files/distribution-docs.xml`
+</div><p id="67ba78a1_33">The <code class="code" id="67ba78a1_34">*dita-ot-dir*/docsrc/samples``/project-files/all.xml</code> file includes all three project deliverables as follows:</p><div class="code-block" data-lang="none"         >
+&lt;project xmlns=&quot;https://www.dita-ot.org/project&quot;&gt;
+  &lt;include href=&quot;html.xml&quot;/&gt;
+  &lt;include href=&quot;htmlhelp.xml&quot;/&gt;
+  &lt;include href=&quot;pdf.xml&quot;/&gt;
+&lt;/project&gt;
+</div><div class="last-modified"> Last modified: 26 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="using-project-files.html">Publishing with project files</a>   <a class="navigation-links__next" href="project-files-json.html">Sample JSON project files</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-26T16:45:30.250746"><meta name="build-number" content="${buildNumber}">       <title>Running the `dita` command from a GitHub Action | DITA Open Toolkit 4.1</title><script id="virtual-toc-data" type="application/json">[{"id":"about-github-actions","level":0,"title":"About GitHub Actions","anchor":"#about-github-actions"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Running the `dita` command from a GitHub Action | DITA Open Toolkit 4.1"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="DITA Open Toolkit 4.1 Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="using-github-actions.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Running the `dita` command from a GitHub Action | DITA Open Toolkit 4.1"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "using-github-actions.html#webpage", "url": "using-github-actions.html", "name": "Running the `dita` command from a GitHub Action | DITA Open Toolkit 4.1", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "DITA Open Toolkit 4.1 Help" }</script><!-- End Schema.org --></head>      <body data-id="using-github-actions" data-main-title="Running the `dita` command from a GitHub Action" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="building-output.md|Building output"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>DITA Open Toolkit 4.1  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="using-github-actions"   id="using-github-actions.md">Running the `dita` command from a GitHub Action</h1>  <p id="a7775d80_4"><a href="https://github.com/features/actions" id="a7775d80_5"   data-external="true" rel="noopener noreferrer" >GitHub Actions</a> are a CI/CD workflow mechanism attached to GitHub. Each action is an individual unit of functionality that can be combined with other GitHub Actions to create workflows, which are triggered in response to certain GitHub events. As of version 3.6.1, the DITA-OT project provides an official <a href="https://github.com/dita-ot/dita-ot-action" id="a7775d80_6"   data-external="true" rel="noopener noreferrer" >dita-ot-action</a> that can be used as a step within a GitHub workflow to publish documentation as part of your CI/CD pipeline.</p><section class="chapter"><h2 id="about-github-actions" data-toc="about-github-actions"   >About GitHub Actions</h2><p id="a7775d80_7">GitHub Actions can automate tasks such as document generation as part of your software development life cycle. GitHub Actions are event-driven, allowing a series of tasks to run one after another when a specified event has occurred.</p><p id="a7775d80_8">Each step is an individual atomic task that can run commands in a job. A step can be either an action or a shell command. Each step in a job executes on the same runner, allowing the actions in that job to share data with each other, therefore files generated through the <code class="code" id="a7775d80_9">dita-ot-build</code> action can be archived or published by later actions within the same job.</p><ol class="list _decimal" id="a7775d80_10" type="1"><li class="list__item" id="a7775d80_11"><p id="a7775d80_12">In your GitHub repository, create the <code class="code" id="a7775d80_13">.github/workflows/</code> directory to store your workflow files.</p></li><li class="list__item" id="a7775d80_14"><p id="a7775d80_15">In the <code class="code" id="a7775d80_16">.github/workflows/</code> directory, create a new file called <code class="code" id="a7775d80_17">dita-ot-build-actions.yml</code> and add the following code.</p><div class="code-block" data-lang="none"         >
+name: CI
+'on':
+  push:
+    branches:
+      - master
+jobs:
+  build-dita:
+    name: Build DITA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+</div><p id="a7775d80_19">This setup ensures the action runs whenever code is updated on the <code class="code" id="a7775d80_20">master</code> branch and checks out the codebase.</p></li><li class="list__item" id="a7775d80_21"><p id="a7775d80_22">In the same file, add the following code.</p><div class="code-block" data-lang="none"         >
+      - name: Build PDF
+        uses: dita-ot/dita-ot-action@master
+        with:
+          input: document.ditamap
+          transtype: pdf
+          output-path: out
+</div><p id="a7775d80_24">This action specifies the following:</p><ul class="list _ul" id="a7775d80_25"><li class="list__item" id="a7775d80_26"><p><span class="control" id="a7775d80_27">name</span> defines the name of the action to be displayed within the GitHub repository</p></li><li class="list__item" id="a7775d80_28"><p><span class="control" id="a7775d80_29">uses</span> specifies the name and version of the GitHub Action to run. Use <code class="code" id="a7775d80_30">dita-ot/dita-ot-action@master</code> to run the latest version.</p></li><li class="list__item" id="a7775d80_31"><p><span class="control" id="a7775d80_32">input</span> specifies the name and location of the input map file within the GitHub repository (relative to the repository root)</p></li><li class="list__item" id="a7775d80_33"><p><span class="control" id="a7775d80_34">transtype</span> sets the output format to PDF, and</p></li><li class="list__item" id="a7775d80_35"><p><span class="control" id="a7775d80_36">output-path</span> writes the output to the <code class="code" id="a7775d80_37">out</code> folder within the running action</p></li></ul></li></ol><p id="a7775d80_38">The <code class="code" id="a7775d80_39">docsrc/samples</code> folder in the DITA-OT installation directory contains several complete examples. The following GitHub Action generates styled HTML and PDF outputs.</p><div class="code-block" data-lang="none"         >
+name: CI
+'on':
+  push:
+    branches:
+      - master
+jobs:
+  build-dita:
+    name: Build DITA
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Build HTML5 + Bootstrap
+        uses: dita-ot/dita-ot-action@master
+        with:
+          plugins: |
+            net.infotexture.dita-bootstrap
+          input: document.ditamap
+          transtype: html5-bootstrap
+          output-path: out
+
+      - name: Build PDF
+        uses: dita-ot/dita-ot-action@master
+        with:
+          install: |
+            # Run some arbitrary installation commands
+            apt-get update -q
+            apt-get install -qy --no-install-recommends nodejs
+            nodejs -v
+
+            # Install plugins
+            dita install fox.jason.extend.css
+            dita install org.doctales.xmltask
+            dita install fox.jason.prismjs
+          build: |
+            # Use the dita command line
+            dita -i document.ditamap -o out -f pdf --filter=filter1.ditaval
+
+      - name: Upload DITA Output to a ZIP file
+        uses: actions/upload-artifact@v2
+        with:
+          name: dita-artifact
+          path: 'out'
+
+      - name: Deploy DITA Output to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: out # The folder the action should deploy.
+</div><p id="a7775d80_41">The <span class="control" id="a7775d80_42">Build HTML5 + Bootstrap</span> step reuses the <span class="control" id="a7775d80_43">input</span>, <span class="control" id="a7775d80_44">transtype</span> and <span class="control" id="a7775d80_45">output-path</span> settings. In addition, additional DITA-OT plug-ins can be loaded using the <span class="control" id="a7775d80_46">plugins</span> parameter, with each plug-in separated by a comma or new line separator.</p><p id="a7775d80_47">The <span class="control" id="a7775d80_48">Build PDF</span> step uses an alternative syntax where the <span class="control" id="a7775d80_49">install</span> and <span class="control" id="a7775d80_50">build</span> parameters are used to run arbitrary commands from the command line.</p><p id="a7775d80_51">See the <code class="code" id="a7775d80_52">docsrc/samples/github-actions</code> folder in the DITA-OT installation directory for additional examples of GitHub Actions for different scenarios.</p></section><div class="last-modified"> Last modified: 26 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="creating-docker-images.html">Installing plug-ins in a Docker image</a>   <a class="navigation-links__next" href="publishing-with-ant.html">Building output using Ant</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>

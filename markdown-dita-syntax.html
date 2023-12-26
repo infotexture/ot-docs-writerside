@@ -1,0 +1,308 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat"><html lang="en-US" data-colors-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex">  <meta name="built-on" content="2023-12-26T16:45:29.89679"><meta name="build-number" content="${buildNumber}">       <title>Markdown DITA syntax | DITA Open Toolkit 4.1</title><script id="virtual-toc-data" type="application/json">[{"id":"titles-and-document-structure","level":0,"title":"Titles and document structure","anchor":"#titles-and-document-structure"},{"id":"topic-content","level":0,"title":"Topic content","anchor":"#topic-content"},{"id":"specialization-types","level":0,"title":"Specialization types","anchor":"#specialization-types"},{"id":"sections","level":0,"title":"Sections","anchor":"#sections"},{"id":"tables","level":0,"title":"Tables","anchor":"#tables"},{"id":"notes","level":0,"title":"Notes","anchor":"#notes"},{"id":"markdown-dita-map-syntax","level":0,"title":"Markdown DITA map syntax","anchor":"#markdown-dita-map-syntax"},{"id":"key-definitions","level":0,"title":"Key definitions","anchor":"#key-definitions"},{"id":"relationship-tables","level":0,"title":"Relationship tables","anchor":"#relationship-tables"},{"id":"common-syntax","level":0,"title":"Common syntax","anchor":"#common-syntax"}]</script><script id="topic-shortcuts" type="application/json"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.css" rel="stylesheet">   <link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><link rel="manifest" href="https://jetbrains.com/site.webmanifest"><link rel="mask-icon" href="https://jetbrains.com/safari-pinned-tab.svg" color="#000000"><meta name="msapplication-TileColor" content="#000000"/><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>  <meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Markdown DITA syntax | DITA Open Toolkit 4.1"/><meta property="og:description" content=""/><meta property="og:image" content=""/><meta property="og:site_name" content="DITA Open Toolkit 4.1 Help"/><meta property="og:type" content="website"/><meta property="og:locale" content="en_US"/><meta property="og:url" content="markdown-dita-syntax.html"/><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Markdown DITA syntax | DITA Open Toolkit 4.1"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json"> { "@context": "http://schema.org", "@type": "WebPage", "@id": "markdown-dita-syntax.html#webpage", "url": "markdown-dita-syntax.html", "name": "Markdown DITA syntax | DITA Open Toolkit 4.1", "description": "", "image": "", "inLanguage":"en-US" }</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json"> { "@type": "WebSite", "@id": "/#website", "url": "/", "name": "DITA Open Toolkit 4.1 Help" }</script><!-- End Schema.org --></head>      <body data-id="Markdown-DITA-syntax" data-main-title="Markdown DITA syntax" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}"  data-template="article"  data-breadcrumbs="reference_index.md|Reference///markdown-formats.md|Markdown formats"  >   <div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>DITA Open Toolkit 4.1  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Markdown-DITA-syntax"   id="Markdown-DITA-syntax.md">Markdown DITA syntax</h1>  <p id="685a65af_3">In 2015, the original <span class="emphasis" id="685a65af_4">DITA-OT Markdown</span> plug-in introduced a series of conventions to convert <a href="https://daringfireball.net/projects/markdown/" id="685a65af_5"   data-external="true" rel="noopener noreferrer" >Markdown</a> content to DITA, and vice-versa. This Markdown flavor was called <span class="emphasis" id="685a65af_6">&ldquo;Markdown DITA&rdquo;</span>. The <code class="code" id="685a65af_7">markdown</code> format adds several complementary constructs to represent DITA content in Markdown, beyond those proposed for the <a href="mdita-syntax.html" id="685a65af_8" data-tooltip="In 2017, the Markdown plug-in was superseded by the LwDITA plug-in, which was bundled with DITA-OT 3.0, and added new formats for Lightweight DITA. The mdita format implements the subset of Markdown features proposed in the latest specification drafts, but differs in some ways from&hellip;"  >MDITA</a> format in the <a href="https://docs.oasis-open.org/dita/LwDITA/v1.0/cn01/LwDITA-v1.0-cn01.html" id="685a65af_9"   data-external="true" rel="noopener noreferrer" >Lightweight DITA</a> specification drafts.</p><p id="685a65af_10">To add a Markdown topic to a DITA publication, create a topic reference in your map and set the <code class="code" id="685a65af_11">@format</code> attribute to <code class="code" id="685a65af_12">markdown</code>. This allows the toolkit to recognize the source file as Markdown and convert it to DITA:</p><div class="code-block" data-lang="markup"         >
+&lt;map&gt;
+  &lt;topicref href=&quot;markdown-dita-topic.md&quot; format=&quot;markdown&quot;/&gt;
+&lt;/map&gt;
+</div><p id="685a65af_14">In this case, the first paragraph in the topic is treated as a body paragraph, and each heading level generates a nested topic.</p><p id="685a65af_15">The <span class="emphasis" id="685a65af_16">Markdown DITA</span> format uses <a href="https://commonmark.org/" id="685a65af_17"   data-external="true" rel="noopener noreferrer" >CommonMark</a> as the underlying markup language, with several extensions as noted below. Markdown DITA files must be UTF-8 encoded.</p><p id="685a65af_18">The following Markdown constructs are parsed differently when the <code class="code" id="685a65af_19">@format</code> attribute is set to <code class="code" id="685a65af_20">markdown</code>.</p><section class="chapter"><h2 id="titles-and-document-structure" data-toc="titles-and-document-structure"   >Titles and document structure</h2><p id="685a65af_21">Each heading level generates a topic and associated title:</p><div class="code-block" data-lang="none"         >
+# Topic title
+
+## Nested topic title
+</div><div class="code-block" data-lang="markup"         >
+&lt;topic id=&quot;topic_title&quot;&gt;
+  &lt;title&gt;Topic title&lt;/title&gt;
+  &lt;topic id=&quot;nested_topic_title&quot;&gt;
+    &lt;title&gt;Nested topic title&lt;/title&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;
+</div><p id="685a65af_24">Pandoc <a href="https://pandoc.org/MANUAL.html#extension-header_attributes" id="685a65af_25"   data-external="true" rel="noopener noreferrer" >header attributes</a> or PHP Markdown Extra <a href="https://michelf.ca/projects/php-markdown/extra/#spe-attr" id="685a65af_26"   data-external="true" rel="noopener noreferrer" >special attributes</a> can be used to define <code class="code" id="685a65af_27">id</code> or <code class="code" id="685a65af_28">outputclass</code> attributes:</p><div class="code-block" data-lang="none"         >
+# Topic title {#carrot .juice audience=novice}
+</div><div class="code-block" data-lang="markup"         >
+&lt;topic id=&quot;carrot&quot; outputclass=&quot;juice&quot; audience=&quot;novice&quot;&gt;
+  &lt;title&gt;Topic title&lt;/title&gt;
+</div><p id="685a65af_31">If topic ID is not defined using header attributes, the ID is generated from title contents.</p><p id="685a65af_32">If the Markdown document doesn&rsquo;t contain a level 1 heading, one is generated based on YAML metadata or from the document file name.</p></section><section class="chapter"><h2 id="topic-content" data-toc="topic-content"   >Topic content</h2><p id="685a65af_33">In Markdown DITA documents, all paragraphs appear inside the <code class="code" id="685a65af_34">body</code> element.</p><div class="code-block" data-lang="none"         >
+# Topic title
+
+First paragraph.
+
+Second paragraph.
+</div><div class="code-block" data-lang="markup"         >
+&lt;topic id=&quot;topic_title&quot;&gt;
+  &lt;title&gt;Topic title&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p&gt;First paragraph.&lt;/p&gt;
+    &lt;p&gt;Second paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;
+</div></section><section class="chapter"><h2 id="specialization-types" data-toc="specialization-types"   >Specialization types</h2><p id="685a65af_37">The following class values in <a href="https://pandoc.org/MANUAL.html#extension-header_attributes" id="685a65af_38"   data-external="true" rel="noopener noreferrer" >header attributes</a> have a special meaning on level 1 headings:</p><ul class="list _ul" id="685a65af_39"><li class="list__item" id="685a65af_40"><p><code class="code" id="685a65af_41">concept</code></p></li><li class="list__item" id="685a65af_42"><p><code class="code" id="685a65af_43">task</code></p></li><li class="list__item" id="685a65af_44"><p><code class="code" id="685a65af_45">reference</code></p></li></ul><p id="685a65af_46">They can be used to change the Markdown DITA topic type to one of the built-in structural specialization types.</p><div class="code-block" data-lang="none"         >
+# Task {.task}
+
+Context
+
+1.  Command
+
+    Info.
+</div><div class="code-block" data-lang="markup"         >
+&lt;task id=&quot;task&quot;&gt;
+  &lt;title&gt;Task &lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;context&gt;
+      &lt;p&gt;Context&lt;/p&gt;
+    &lt;/context&gt;
+    &lt;steps&gt;
+      &lt;step&gt;
+        &lt;cmd&gt;Command&lt;/cmd&gt;
+        &lt;info&gt;
+          &lt;p&gt;Info.&lt;/p&gt;
+        &lt;/info&gt;
+      &lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;
+</div><p id="685a65af_49">The other way to use specialization types is by defining a <a href="markdown-schemas.html" id="685a65af_50" data-tooltip="Starting with version 5.0 of the LwDITA plug-in, the MarkdownReader class supports a new $schema key in the YAML front matter block. This key can be used to define parsing options in topic files for more control over how Markdown content is converted to DITA."  >schema</a> for the document.</p></section><section class="chapter"><h2 id="sections" data-toc="sections"   >Sections</h2><p id="685a65af_51">The following class values in <a href="https://pandoc.org/MANUAL.html#extension-header_attributes" id="685a65af_52"   data-external="true" rel="noopener noreferrer" >header attributes</a> have a special meaning on heading levels other than 1:</p><ul class="list _ul" id="685a65af_53"><li class="list__item" id="685a65af_54"><p><code class="code" id="685a65af_55">section</code></p></li><li class="list__item" id="685a65af_56"><p><code class="code" id="685a65af_57">example</code></p></li></ul><p id="685a65af_58">They are used to generate <a href="https://docs.oasis-open.org/dita/v1.2/os/spec/langref/section.html" id="685a65af_59"   data-external="true" rel="noopener noreferrer" ><code class="code" id="685a65af_60">section</code></a> and <a href="https://docs.oasis-open.org/dita/v1.2/os/spec/langref/example.html" id="685a65af_61"   data-external="true" rel="noopener noreferrer" ><code class="code" id="685a65af_62">example</code></a> elements:</p><div class="code-block" data-lang="none"         >
+# Topic title
+
+## Section title {.section}
+
+## Example title {.example}
+</div><div class="code-block" data-lang="markup"         >
+&lt;topic id=&quot;topic_title&quot;&gt;
+  &lt;title&gt;Topic title&lt;/title&gt;
+  &lt;body&gt;
+    &lt;section&gt;
+      &lt;title&gt;Section title&lt;/title&gt;
+    &lt;/section&gt;
+    &lt;example&gt;
+      &lt;title&gt;Example title&lt;/title&gt;
+    &lt;/example&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;
+</div></section><section class="chapter"><h2 id="tables" data-toc="tables"   >Tables</h2><p id="685a65af_65">Tables use the <a href="https://fletcherpenney.net/multimarkdown/" id="685a65af_66"   data-external="true" rel="noopener noreferrer" >MultiMarkdown</a> table extension format:</p><div class="code-block" data-lang="none"         >
+| First Header | Second Header | Third Header |
+| ------------ | :-----------: | -----------: |
+| Content      |          _Long Cell_        ||
+| Content      |   **Cell**    |         Cell |
+</div><p id="685a65af_68">Tables in Markdown DITA files are converted to the <a href="https://www.oasis-open.org/specs/tm9901.html" id="685a65af_69"   data-external="true" rel="noopener noreferrer" >OASIS exchange table model</a>:</p><div class="code-block" data-lang="markup"         >
+&lt;table&gt;
+  &lt;tgroup cols=&quot;3&quot;&gt;
+    &lt;colspec colname=&quot;col1&quot; colnum=&quot;1&quot;/&gt;
+    &lt;colspec colname=&quot;col2&quot; colnum=&quot;2&quot;/&gt;
+    &lt;colspec colname=&quot;col3&quot; colnum=&quot;3&quot;/&gt;
+    &lt;thead&gt;
+      &lt;row&gt;
+        &lt;entry colname=&quot;col1&quot;&gt;First Header&lt;/entry&gt;
+        &lt;entry align=&quot;center&quot; colname=&quot;col2&quot;&gt;Second Header&lt;/entry&gt;
+        &lt;entry align=&quot;right&quot; colname=&quot;col3&quot;&gt;Third Header&lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;row&gt;
+        &lt;entry colname=&quot;col1&quot;&gt;Content&lt;/entry&gt;
+        &lt;entry align=&quot;center&quot; namest=&quot;col2&quot; nameend=&quot;col3&quot; colname=&quot;col2&quot;&gt;&lt;i&gt;Long Cell&lt;/i&gt;&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry colname=&quot;col1&quot;&gt;Content&lt;/entry&gt;
+        &lt;entry align=&quot;center&quot; colname=&quot;col2&quot;&gt;&lt;b&gt;Cell&lt;/b&gt;&lt;/entry&gt;
+        &lt;entry align=&quot;right&quot; colname=&quot;col3&quot;&gt;Cell&lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/tbody&gt;
+  &lt;/tgroup&gt;
+&lt;/table&gt;
+</div><p id="685a65af_71">Table cells may only contain inline content and column spans; block content and row spans are not supported in Markdown DITA.</p></section><section class="chapter"><h2 id="notes" data-toc="notes"   >Notes</h2><p id="685a65af_72">Notes can be written using the syntax defined in the Material for MkDocs <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/" id="685a65af_73"   data-external="true" rel="noopener noreferrer" >admonition extension</a>.</p><aside class="prompt" data-type="tip" data-title="" id="685a65af_74"><p id="685a65af_75"><span class="control" id="685a65af_76">Note:</span> Requires DITA-OT 4.1 or newer.</p></aside><div class="code-block" data-lang="none"         >
+!!! note
+
+    Note content.
+</div><div class="code-block" data-lang="markup"         >
+&lt;note&gt;
+  &lt;p&gt;Note Content.&lt;/p&gt;
+&lt;/note&gt;
+</div><p id="685a65af_79">Different note types can be defined by changing the type qualifier keyword.</p><div class="code-block" data-lang="none"         >
+!!! info
+
+    Info content.
+</div><div class="code-block" data-lang="markup"         >
+&lt;note type=&quot;info&quot;&gt;
+  &lt;p&gt;Info Content.&lt;/p&gt;
+&lt;/note&gt;
+</div></section><section class="chapter"><h2 id="markdown-dita-map-syntax" data-toc="markdown-dita-map-syntax"   >Markdown DITA map syntax</h2><p id="685a65af_82">DITA maps can be written in Markdown using standard Markdown syntax for links and lists.</p><aside class="prompt" data-type="tip" data-title="" id="685a65af_83"><p id="685a65af_84"><span class="control" id="685a65af_85">Note:</span> Requires DITA-OT 4.1 or newer.</p></aside><p id="685a65af_86">In Markdown DITA, maps use the <a href="markdown-schemas.html" id="685a65af_87" data-tooltip="Starting with version 5.0 of the LwDITA plug-in, the MarkdownReader class supports a new $schema key in the YAML front matter block. This key can be used to define parsing options in topic files for more control over how Markdown content is converted to DITA."  >schema</a> key in the YAML front matter block to define the file as a map:</p><div class="code-block" data-lang="none"         >
+---
+$schema: urn:oasis:names:tc:dita:xsd:map.xsd
+---
+
+# Map title
+
+- [Topic title](topic.md)
+  - [Nested title](nested.md)
+</div><div class="code-block" data-lang="markup"         >
+&lt;map&gt;
+  &lt;title&gt;Map Title&lt;/title&gt;
+  &lt;topicref href=&quot;topic.dita&quot; navtitle=&quot;Topic title&quot;&gt;
+    &lt;topicref href=&quot;nested.dita&quot; navtitle=&quot;Nested title&quot;/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;
+</div><p id="685a65af_90">Unordered list items create <code class="code" id="685a65af_91">&lt;topicref&gt;</code> elements, and ordered list items create <code class="code" id="685a65af_92">&lt;topicref&gt;</code> elements with <code class="code" id="685a65af_93">collection-type=&quot;sequence&quot;</code>.</p></section><section class="chapter"><h2 id="key-definitions" data-toc="key-definitions"   >Key definitions</h2><p id="685a65af_94">Keys can be defined using standard Markdown syntax for <a href="https://spec.commonmark.org/0.30/#link-reference-definition" id="685a65af_95"   data-external="true" rel="noopener noreferrer" >link reference definitions</a>.</p><div class="code-block" data-lang="none"         >
+---
+$schema: urn:oasis:names:tc:dita:xsd:map.xsd
+---
+
+[key-name]: topic.md
+</div><div class="code-block" data-lang="markup"         >
+&lt;map&gt;
+  &lt;keydef href=&quot;topic.dita&quot; navtitle=&quot;Topic title&quot;/&gt;
+&lt;/map&gt;
+</div></section><section class="chapter"><h2 id="relationship-tables" data-toc="relationship-tables"   >Relationship tables</h2><p id="685a65af_98">Relationship tables are tables with links inside cells.</p><div class="code-block" data-lang="none"         >
+---
+$schema: urn:oasis:names:tc:dita:xsd:map.xsd
+---
+
+| [Help](topic.md)  |                           |
+| ----------------- | ------------------------- |
+| [Topic](topic.md) | [Reference](reference.md) |
+</div><div class="code-block" data-lang="markup"         >
+&lt;map&gt;
+  &lt;reltable&gt;
+    &lt;relheader&gt;
+      &lt;relcolspec&gt;
+        &lt;topicref href=&quot;help.dita&quot;/&gt;
+      &lt;/relcolspec&gt;
+      &lt;relcolspec/&gt;
+    &lt;/relheader&gt;
+    &lt;relrow&gt;
+      &lt;relcell&gt;
+        &lt;topicref href=&quot;topic.dita&quot;/&gt;
+      &lt;/relcell&gt;
+      &lt;relcell&gt;
+        &lt;topicref href=&quot;reference.dita&quot;/&gt;
+      &lt;/relcell&gt;
+    &lt;/relrow&gt;
+  &lt;/reltable&gt;
+&lt;/map&gt;
+</div></section><section class="chapter"><h2 id="common-syntax" data-toc="common-syntax"   >Common syntax</h2><p id="685a65af_101">The following common Markdown constructs are processed in the same way for both <code class="code" id="685a65af_102">mdita</code> and <code class="code" id="685a65af_103">markdown</code> topics.</p><section class="chapter"><h3 id="hard-line-breaks" data-toc="hard-line-breaks"   >Hard line breaks</h3><p id="685a65af_104">A line break that is preceded by two or more spaces is parsed as a hard line break. Because DITA doesn&rsquo;t have a <code class="code" id="685a65af_105">&lt;br&gt;</code> element for line break, hard line breaks are converted into <code class="code" id="685a65af_106">&lt;?linebreak?&gt;</code> processing instructions.</p><div class="code-block" data-lang="none"         >
+foo&middot;&middot;
+baz
+</div><div class="code-block" data-lang="markup"         >
+&lt;p&gt;foo&lt;?linebreak?&gt;baz&lt;/p&gt;
+</div><p id="685a65af_109">The LwDITA plug-in contains extensions for HTML5 and PDF outputs to generate line breaks.</p></section><section class="chapter"><h3 id="links" data-toc="links"   >Links</h3><p id="685a65af_110">The format of local link targets is detected based on file name extension. The following extensions are treated as DITA files:</p><div class="table-wrapper"><table class="wide" id="685a65af_111"><thead><tr class="ijRowHead" id="685a65af_112"><th id="685a65af_113"><p>extension</p></th><th id="685a65af_114"><p>format</p></th></tr></thead><tbody><tr id="685a65af_115"><td id="685a65af_116"><p><code class="code" id="685a65af_117">.dita</code></p></td><td id="685a65af_118"><p><code class="code" id="685a65af_119">dita</code></p></td></tr><tr id="685a65af_120"><td id="685a65af_121"><p><code class="code" id="685a65af_122">.xml</code></p></td><td id="685a65af_123"><p><code class="code" id="685a65af_124">dita</code></p></td></tr><tr id="685a65af_125"><td id="685a65af_126"><p><code class="code" id="685a65af_127">.md</code></p></td><td id="685a65af_128"><p><code class="code" id="685a65af_129">markdown</code></p></td></tr><tr id="685a65af_130"><td id="685a65af_131"><p><code class="code" id="685a65af_132">.markdown</code></p></td><td id="685a65af_133"><p><code class="code" id="685a65af_134">markdown</code></p></td></tr></tbody></table></div><p id="685a65af_135">All other link targets detect the <code class="code" id="685a65af_136">format</code> from the file name extension and are treated as non-DITA files. Absolute link targets are treated as external scope links:</p><div class="code-block" data-lang="none"         >
+[Markdown](test.md)
+[DITA](test.dita)
+[HTML](test.html)
+[External](http://www.example.com/test.html)
+</div><div class="code-block" data-lang="markup"         >
+&lt;xref href=&quot;test.md&quot;&gt;Markdown&lt;/xref&gt;
+&lt;xref href=&quot;test.dita&quot;&gt;DITA&lt;/xref&gt;
+&lt;xref href=&quot;test.html&quot; format=&quot;html&quot;&gt;HTML&lt;/xref&gt;
+&lt;xref href=&quot;http://www.example.com/test.html&quot; format=&quot;html&quot; scope=&quot;external&quot;&gt;External&lt;/xref&gt;
+</div></section><section class="chapter"><h3 id="images" data-toc="images"   >Images</h3><p id="685a65af_139">Images used in inline content are processed with inline placement. If a block-level image contains a title, it is treated as an image wrapped in a figure element:</p><div class="code-block" data-lang="none"         >
+An inline ![Alt](test.jpg).
+
+![Alt](test.jpg)
+
+![Alt](test.jpg 'Title')
+</div><div class="code-block" data-lang="markup"         >
+&lt;p&gt;An inline &lt;image href=&quot;test.jpg&quot;&gt;&lt;alt&gt;Alt&lt;/alt&gt;&lt;/image&gt;.&lt;/p&gt;
+&lt;image href=&quot;test.jpg&quot; placement=&quot;break&quot;&gt;
+  &lt;alt&gt;Alt&lt;/alt&gt;
+&lt;/image&gt;
+&lt;fig&gt;
+  &lt;title&gt;Title&lt;/title&gt;
+  &lt;image href=&quot;test.jpg&quot;&gt;
+    &lt;alt&gt;Alt&lt;/alt&gt;
+  &lt;/image&gt;
+&lt;/fig&gt;
+</div></section><section class="chapter"><h3 id="key-references" data-toc="key-references"   >Key references</h3><p id="685a65af_142">Keys can be referenced using standard Markdown syntax for <a href="https://spec.commonmark.org/0.30/#shortcut-reference-link" id="685a65af_143"   data-external="true" rel="noopener noreferrer" >shortcut reference links</a>:</p><div class="code-block" data-lang="none"         >
+[key]
+[link text][key]
+![image-key]
+</div><div class="code-block" data-lang="markup"         >
+&lt;xref keyref=&quot;key&quot;/&gt;
+&lt;xref keyref=&quot;key&quot;&gt;link text&lt;/xref&gt;
+&lt;image keyref=&quot;image-key&quot;/&gt;
+</div></section><section class="chapter"><h3 id="inline" data-toc="inline"   >Inline</h3><p id="685a65af_146">The following inline elements are supported:</p><div class="code-block" data-lang="none"         >
+**bold**
+_italic_
+`code`
+~~strikethrough~~
+</div><div class="code-block" data-lang="markup"         >
+&lt;b&gt;bold&lt;/b&gt;
+&lt;i&gt;italic&lt;/i&gt;
+&lt;codeph&gt;code&lt;/codeph&gt;
+&lt;ph status=&quot;deleted&quot;&gt;strikethrough&lt;/ph&gt;
+</div></section><section class="chapter"><h3 id="lists" data-toc="lists"   >Lists</h3><p id="685a65af_149">Standard Markdown syntax is used for both ordered (numbered) and unordered (bulleted) lists.</p><p id="685a65af_150">Unordered list items can be marked up using either asterisks &ldquo; <code class="code" id="685a65af_151">*</code>&rdquo; or hyphens &ldquo; <code class="code" id="685a65af_152">-</code>&rdquo; as list markers:</p><div class="code-block" data-lang="none"         >
+* one
+* two
+  - three
+  - four
+</div><div class="code-block" data-lang="markup"         >
+&lt;ul&gt;
+  &lt;li&gt;one&lt;/li&gt;
+  &lt;li&gt;two
+    &lt;ul&gt;
+      &lt;li&gt;three&lt;/li&gt;
+      &lt;li&gt;four&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</div><p id="685a65af_155">Ordered lists use either numbers or number signs &ldquo; <code class="code" id="685a65af_156">#</code>&rdquo;, followed by a period:</p><div class="code-block" data-lang="none"         >
+1.  one
+2.  two
+    #. three
+    #. four
+</div><div class="code-block" data-lang="markup"         >
+&lt;ol&gt;
+  &lt;li&gt;one&lt;/li&gt;
+  &lt;li&gt;two
+    &lt;ol&gt;
+      &lt;li&gt;three&lt;/li&gt;
+      &lt;li&gt;four&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</div><aside class="prompt" data-type="tip" data-title="" id="685a65af_159"><p id="685a65af_160"><span class="control" id="685a65af_161">Note:</span> Markdown DITA supports both loose and <a href="https://spec.commonmark.org/0.30/#tight" id="685a65af_162"   data-external="true" rel="noopener noreferrer" >tight</a> list spacing (with no blank lines between list items). MDITA treats all lists as <a href="https://spec.commonmark.org/0.30/#loose" id="685a65af_163"   data-external="true" rel="noopener noreferrer" >loose</a>, and wraps each list item in a paragraph (<code class="code" id="685a65af_164">&lt;li&gt;&lt;p&gt;item&lt;/p&gt;&lt;/li&gt;</code>).</p></aside><p id="685a65af_165">Definition lists use the <a href="https://michelf.com/projects/php-markdown/extra/#def-list" id="685a65af_166"   data-external="true" rel="noopener noreferrer" >PHP Markdown Extra</a> format with a single-line term followed by a colon and the definition:</p><div class="code-block" data-lang="none"         >
+Term
+: Definition.
+</div><div class="code-block" data-lang="markup"         >
+&lt;dl&gt;
+  &lt;dlentry&gt;
+    &lt;dt&gt;Term&lt;/dt&gt;
+    &lt;dd&gt;Defintion.&lt;/dd&gt;
+  &lt;/dlentry&gt;
+&lt;/dl&gt;
+</div><p id="685a65af_169">Each definition list entry must have only one term and contain only inline content.</p></section><section class="chapter"><h3 id="metadata" data-toc="metadata"   >Metadata</h3><p id="685a65af_170">A <a href="https://www.yaml.org/" id="685a65af_171"   data-external="true" rel="noopener noreferrer" >YAML</a> metadata block as defined in the <a href="https://pandoc.org/MANUAL.html#extension-yaml_metadata_block" id="685a65af_172"   data-external="true" rel="noopener noreferrer" >pandoc_metadata_block</a> extension can be used to specify metadata elements for the DITA prolog.</p><p id="685a65af_173">The supported elements are:</p><ul class="list _ul" id="685a65af_174"><li class="list__item" id="685a65af_175"><p><code class="code" id="685a65af_176">author</code></p></li><li class="list__item" id="685a65af_177"><p><code class="code" id="685a65af_178">source</code></p></li><li class="list__item" id="685a65af_179"><p><code class="code" id="685a65af_180">publisher</code></p></li><li class="list__item" id="685a65af_181"><p><code class="code" id="685a65af_182">permissions</code></p></li><li class="list__item" id="685a65af_183"><p><code class="code" id="685a65af_184">audience</code></p></li><li class="list__item" id="685a65af_185"><p><code class="code" id="685a65af_186">category</code></p></li><li class="list__item" id="685a65af_187"><p><code class="code" id="685a65af_188">keyword</code></p></li><li class="list__item" id="685a65af_189"><p><code class="code" id="685a65af_190">resourceid</code></p></li></ul><p id="685a65af_191">Any unrecognized keys are output using the <code class="code" id="685a65af_192">&lt;data&gt;</code> element.</p><div class="code-block" data-lang="none"         >
+---
+author:
+  - Author One
+  - Author Two
+source: Source
+publisher: Publisher
+permissions: Permissions
+audience: Audience
+category: Category
+keyword:
+  - Keyword1
+  - Keyword2
+resourceid:
+  - Resourceid1
+  - Resourceid2
+workflow: review
+---
+
+# Sample with YAML header
+</div><div class="code-block" data-lang="markup"         >
+&lt;title&gt;Sample with YAML header&lt;/title&gt;
+&lt;prolog&gt;
+  &lt;author&gt;Author One&lt;/author&gt;
+  &lt;author&gt;Author Two&lt;/author&gt;
+  &lt;source&gt;Source&lt;/source&gt;
+  &lt;publisher&gt;Publisher&lt;/publisher&gt;
+  &lt;permissions view=&quot;Permissions&quot;/&gt;
+  &lt;metadata&gt;
+    &lt;audience audience=&quot;Audience&quot;/&gt;
+    &lt;category&gt;Category&lt;/category&gt;
+    &lt;keywords&gt;
+      &lt;keyword&gt;Keyword1&lt;/keyword&gt;
+      &lt;keyword&gt;Keyword2&lt;/keyword&gt;
+    &lt;/keywords&gt;
+  &lt;/metadata&gt;
+  &lt;resourceid appid=&quot;Resourceid1&quot;/&gt;
+  &lt;resourceid appid=&quot;Resourceid2&quot;/&gt;
+  &lt;data name=&quot;workflow&quot; value=&quot;review&quot;/&gt;
+&lt;/prolog&gt;
+</div></section></section><div class="last-modified"> Last modified: 26 December 2023</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom">  <a class="navigation-links__prev" href="markdown-formats.html">Markdown formats</a>   <a class="navigation-links__next" href="mdita-syntax.html">MDITA syntax</a>  </div></article><div id="disqus_thread"></div></div></section></main></div>  <script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b205/app.js"></script></body></html>
