@@ -7,10 +7,10 @@
 
   <!-- Converted from DITA-OT docs `userguide.ditamap` -->
   <toc-element topic="index.md"/>
-  <toc-element topic="release-notes_index.md">
+  <toc-element topic="release-notes_index.md" toc-title="Release notes">
     <toc-element topic="release-history.md"/>
   </toc-element>
-  <toc-element topic="installing-client.md">
+  <toc-element topic="installing-client.md" toc-title="Installing DITA-OT">
     <toc-element topic="prerequisite-software.md"/>
     <toc-element topic="determining-version-of-ditaot.md" toc-title="Checking the version"/>
     <toc-element topic="first-build-using-dita-command.md" toc-title="First build"/>
@@ -42,7 +42,7 @@
     <toc-element topic="markdown-input.md"/>
     <toc-element topic="lwdita-input.md"/>
   </toc-element>
-  <toc-element topic="output-formats.md">
+  <toc-element topic="output-formats.md" toc-title="Output formats">
     <toc-element topic="dita2pdf.md"/>
     <toc-element topic="dita2html5.md"/>
     <toc-element topic="dita2eclipsehelp.md"/>
@@ -51,7 +51,7 @@
     <toc-element topic="dita2dita.md"/>
     <toc-element topic="dita2xhtml.md"/>
   </toc-element>
-  <toc-element topic="parameters_index.md">
+  <toc-element topic="parameters_index.md" toc-title="Parameters">
     <toc-element topic="dita-command-arguments.md"/>
     <toc-element topic="parameters_intro.md">
       <toc-element topic="parameters-base.md"/>
@@ -70,7 +70,7 @@
       <toc-element topic="internal-ant-properties.md"/>
     </toc-element>
   </toc-element>
-  <toc-element topic="html-customization.md">
+  <toc-element topic="html-customization.md" toc-title="Customizing HTML">
     <toc-element topic="html-customization-parameters.md">
       <toc-element topic="html-customization-navigation.md"/>
       <toc-element topic="html-customization-css.md"/>
@@ -79,7 +79,7 @@
     </toc-element>
     <toc-element topic="html-customization-properties-file.md"/>
   </toc-element>
-  <toc-element topic="pdf-customization.md">
+  <toc-element topic="pdf-customization.md" toc-title="Customizing PDF">
     <toc-element topic="pdf-customization-approaches.md"/>
     <toc-element topic="pdf2-creating-change-bars.md"/>
     <toc-element topic="pdf-themes.md">
@@ -92,13 +92,13 @@
       <toc-element topic="Syntactic-sugar.md"/>
     </toc-element>
   </toc-element>
-  <toc-element topic="adding-plugins.md">
+  <toc-element topic="adding-plugins.md" toc-title="Adding plug-ins">
     <toc-element topic="plugins-installing.md"/>
     <toc-element topic="plugins-removing.md"/>
     <toc-element topic="plugins-registry.md"/>
     <toc-element topic="rebuilding-docs.md"/>
   </toc-element>
-  <toc-element topic="custom-plugins.md">
+  <toc-element topic="custom-plugins.md" toc-title="Creating plug-ins">
     <toc-element topic="plugin-benefits.md"/>
     <toc-element topic="plugin-configfile.md"/>
     <toc-element topic="plugin-coding-conventions.md"/>
@@ -175,7 +175,7 @@
       <toc-element topic="migrating-to-1.5.4.md"/>
     </toc-element>
   </toc-element>
-  <toc-element topic="troubleshooting-overview.md">
+  <toc-element topic="troubleshooting-overview.md" toc-title="Troubleshooting">
     <toc-element topic="logging.md"/>
     <toc-element topic="enabling-debug-mode.md"/>
     <toc-element topic="error-messages.md"/>
@@ -185,7 +185,7 @@
     <toc-element topic="reducing-processing-time.md"/>
 <!--<toc-element topic="configuring-proxies.md"/>-->
   </toc-element>
-  <toc-element topic="reference_index.md">
+  <toc-element topic="reference_index.md" toc-title="Reference">
     <toc-element topic="architecture.md">
       <toc-element topic="processing-structure.md"/>
       <toc-element topic="map-first-preprocessing.md"/>
@@ -259,7 +259,7 @@
     </toc-element>
     <toc-element topic="glossary.md"/>
   </toc-element>
-  <toc-element topic="dita-and-dita-ot-resources.md">
+  <toc-element topic="dita-and-dita-ot-resources.md" toc-title="Resources">
     <toc-element topic="books.md"/>
   </toc-element>
 </instance-profile>
